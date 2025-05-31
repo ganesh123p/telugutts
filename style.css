@@ -1,0 +1,301 @@
+/* Global Styles & Apple-esque Theme */
+:root {
+    --primary-bg: #1c1c1e; /* Dark grey, almost black */
+    --secondary-bg: #2c2c2e; /* Slightly lighter grey for elements */
+    --text-color: #f2f2f7; /* Off-white */
+    --accent-color: #ffd60a; /* Yellow accent */
+    --secondary-accent-color: #ff9f0a; /* Orange-yellow for hover */
+    --border-radius: 12px;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+header h1 {
+    color: var(--accent-color);
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.splash-content {
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.splash-content .fa-apple {
+    font-size: 5em; /* Larger Apple logo */
+    margin-bottom: 20px;
+}
+
+.splash-content p {
+    font-size: 1.2em;
+}
+
+
+/* Guided Tour Modal */
+.tour-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9990;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.tour-content {
+    background-color: var(--secondary-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.tour-step h2 {
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+.tour-step p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.tour-content button {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    margin: 5px;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+.tour-content button:hover {
+    background-color: var(--secondary-accent-color);
+}
+.tour-content button:active {
+    transform: scale(0.95);
+}
+
+
+/* Main App UI Elements */
+.input-section, .history-section {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+textarea#text-to-speak {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #3a3a3c;
+    color: var(--text-color);
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    resize: vertical;
+    min-height: 100px;
+}
+textarea#text-to-speak:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+
+.controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+select#voice-select {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #3a3a3c;
+    color: var(--text-color);
+    border: 1px solid #444;
+    flex-grow: 1;
+    font-size: 0.9em;
+}
+select#voice-select:focus {
+     outline: none;
+    border-color: var(--accent-color);
+}
+
+
+button#speak-button, button#clear-history-button {
+    background-color: var(--accent-color);
+    color: var(--primary-bg); /* Dark text on yellow button */
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button#speak-button:hover, button#clear-history-button:hover {
+    background-color: var(--secondary-accent-color);
+}
+button#speak-button:active, button#clear-history-button:active {
+    transform: scale(0.95);
+}
+button#speak-button:disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.status {
+    font-size: 0.9em;
+    color: var(--accent-color);
+    min-height: 1.2em; /* reserve space */
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.history-section h2 {
+    color: var(--accent-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+ul#history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+ul#history-list li {
+    padding: 10px 15px;
+    background-color: #3a3a3c;
+    border-bottom: 1px solid #2c2c2e;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ul#history-list li:last-child {
+    border-bottom: none;
+}
+
+ul#history-list li:hover {
+    background-color: #4a4a4c;
+}
+
+.history-text {
+    flex-grow: 1;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.history-actions button {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 5px;
+}
+.history-actions button:hover {
+    color: var(--secondary-accent-color);
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #888;
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+    .controls {
+        flex-direction: column;
+    }
+    select#voice-select, button#speak-button {
+        width: 100%;
+    }
+    .tour-content {
+        padding: 20px;
+    }
+}
+
+/* Framer Motion may add its own transforms, this is baseline */
+.fm-button {
+    /* Style this if you wrap buttons in motion.button directly in JS */
+}
