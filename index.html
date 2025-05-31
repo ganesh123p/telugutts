@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>తెలుగు వాక్య ఉచ్చారణ (Telugu TTS)</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons (Apple-like) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Framer Motion -->
+    <script src="https://cdn.jsdelivr.net/npm/framer-motion@10/dist/framer-motion.umd.min.js"></script>
+</head>
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <!-- Simple Apple-like logo (can be replaced with SVG) -->
+            <i class="fab fa-apple fa-3x"></i>
+            <p>లోడ్ అవుతోంది...</p>
+        </div>
+    </div>
+
+    <!-- Guided Intro Tour -->
+    <div id="guided-tour" class="tour-modal" style="display: none;">
+        <div class="tour-content">
+            <div id="tour-step-1" class="tour-step">
+                <h2>స్వాగతం!</h2>
+                <p>ఇది తెలుగు టెక్స్ట్-టు-స్పీచ్ అప్లికేషన్.</p>
+                <img src="https://via.placeholder.com/300x150/000000/FFFF00?text=App+Screenshot+Placeholder" alt="App example" style="width:100%; max-width:300px; margin:10px 0; border-radius: 8px;">
+                <button class="tour-next-btn" data-next="tour-step-2">తదుపరి <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div id="tour-step-2" class="tour-step" style="display: none;">
+                <h2>ఎలా ఉపయోగించాలి?</h2>
+                <p>టెక్స్ట్ బాక్స్‌లో తెలుగు వచనాన్ని టైప్ చేయండి లేదా అతికించండి.</p>
+                <p>"మాట్లాడండి" బటన్‌ను నొక్కండి.</p>
+                <button class="tour-prev-btn" data-prev="tour-step-1"><i class="fas fa-arrow-left"></i> వెనుకకు</button>
+                <button class="tour-next-btn" data-next="tour-step-3">తదుపరి <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div id="tour-step-3" class="tour-step" style="display: none;">
+                <h2>చరిత్ర (History)</h2>
+                <p>మీరు మాట్లాడిన వచనాలు చరిత్ర విభాగంలో సేవ్ చేయబడతాయి.</p>
+                <p>తిరిగి వినడానికి వాటిపై క్లిక్ చేయండి.</p>
+                <button class="tour-prev-btn" data-prev="tour-step-2"><i class="fas fa-arrow-left"></i> వెనుకకు</button>
+                <button id="tour-finish-btn">ప్రారంభించండి!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app-container" style="display: none;">
+        <header>
+            <h1><i class="fas fa-microphone-alt"></i> తెలుగు వాక్య ఉచ్చారణ</h1>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <textarea id="text-to-speak" placeholder="ఇక్కడ తెలుగు వచనాన్ని నమోదు చేయండి..." rows="6"></textarea>
+                <div class="controls">
+                    <select id="voice-select" title="Select Voice (if available)"></select>
+                    <button id="speak-button">
+                        <i class="fas fa-play"></i> మాట్లాడండి
+                    </button>
+                </div>
+                 <div id="status-message" class="status"></div>
+            </div>
+
+            <div class="history-section">
+                <h2><i class="fas fa-history"></i> చరిత్ర</h2>
+                <ul id="history-list">
+                    <!-- History items will be populated here -->
+                </ul>
+                <button id="clear-history-button" title="Clear History">
+                    <i class="fas fa-trash-alt"></i> చరిత్రను క్లియర్ చేయండి
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p>© <span id="current-year"></span> మీ ప్రాజెక్ట్ పేరు. సర్వ హక్కులు ప్రత్యేకించబడ్డాయి.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
